@@ -1,0 +1,336 @@
+Them: For this project is to actually demonstrate how we can deploy in dev in a matter of minutes, right? Uh, without fundamentally changing how CT is deploying software in our.
+Them:  Environment, right? Obviously there is some centralized effort where some teams are actually looking at that as well, to make changes to how software gets deployed, to accelerate some of these processes.
+Them:  We—our effort with the Zeus Developer Platform is to actually reuse as much as possible, right? When we are able to reuse, we're going to be able to actually do this
+You (Speaker 2): नहीं चाहिए, पापा। नहीं चाहिए।
+Them:  fast without waiting on CMPs, without waiting on other different kind of processes that are adding additional
+You (Speaker 2):  नहीं चाहिए।
+Them:  time, right, that we need to wait. So that being said, if we are deploying our modules in the same environment and reusing the same capabilities, same database, the same points, or the same different kind of things, actually coins—sorry, scratch that, because coin—we do provision new ones going through Lightspeed Enterprise, and it's very quick.
+Them:  So there is no need to reuse that. Everyone gets their own coin, right?
+Them:  What we do need to reuse is probably the IMS entitlements provisioning, we do need to reuse the database, and a couple of other things, right? So all of those that actually introduces delays, we're reusing the ones that get provisioned for our host module or host micro-frontend, and all the remote micro-frontends, they get deployed into the same environment.
+Them:  That's how we're going to be able to deploy our code in a matter of minutes, right?
+Them:  So the.
+Them:  Milestone is that we get—we want to make this prototype this directional prototype the way we designed it, how to manage modules, how to create new modules, and how to reuse modules, right? It's.
+Them:  Not going to be only AI-driven. We're actually using what the industry has been doing it for decades, leveraging Git as a source of truth where the code is, versioning those versions, those repositories, right?
+Them:  And when somebody creates a new module, they either create from these three blueprints, the put it together and we'll probably be developing other blueprints as well, depends on the who will be using them for now. We just have teams for using Python, for using Java, for using Node.
+Them: js. We'll be using those blueprints.
+Them:  Or we're using some of the existing blueprints, right? And this is the experience that people will be able to just select that blueprint, create the entitlement or customize the entitlements for that module.
+Them:  If they don't need to customize anything beyond that, if they just do the paste, submit, it will make—it will be the equivalent of cloning this Git repository and running a couple of regular expressions to make changes to different names, values, as well as description—name, description, values, and so on and so forth. And make a pull request into the new GitHub repository, and that pull request will trigger a new executions of all these—
+Them:  Lightspeed Enterprise pipelines and will deploy code into the same dev environment where the most remote micro.
+Them:  Frontend is deployed. Right?
+Them:  Now, as you can see, we have problems with Lightspeed Enterprise. It's not a code issue, it's the Lightspeed Enterprise something is going wrong.
+Them:  So—but if somebody—oh, sorry, not here. Coming back here.
+Them:  That's what we need to achieve, right? Once we have this and we show people how to actually use and reuse software, as it's been done in the open-source community for decades, we will go into.
+Them:  Defining what is actually part of the process, and it's—sorry, it's not just defining. So this is the creation, right?
+Them:  If I need to customize something beyond just the entitlements, right, then I can come in and I can specify my own values for all these environmental variables. Those environmental variables will be injected in the compute environment that will run this Git clone renaming of various values and submitting to the new repository, to the target repository.
+Them:  That's how you will be able to, again, bring customizations, right? But some of these tasks, right, for example, maybe coin will be quick, but the certificate actually are requiring some CMP that will wait for somebody to go and approve that and so on and so forth, right?
+Them:  So how do we actually measure and visualize all of that? So we added in an existing module that gets created, either a new one or the existing one, two more experiences.
+Them:  One of them is to actually break it down to the task level, every single thing that needs to happen in order to get your code base from GitHub into a dev environment, right? And in some cases, there will be something like this that it says, hey, I'm actually blocked, the.
+Them:  Automatically will be marked the task that are exceeding the SLA will be marked automatically as blocked. Tasks that are within SLA but not done yet, they will be automatically marked as in progress.
+Them:  And the tasks that didn't start, they will be marked as to do, right? And visually—
+Them:  And I'm the only one that lost them, or is everyone else—
+Them:  Yeah, it looks like we lost.
+You (Speaker 5):  Yeah.
+Them:  Okay.
+Them:  And I can probably go and follow up.
+Them:  Eugene, we lost you for at least 30 seconds there.
+Them:  Yeah.
+Them:  You were frozen.
+Them:  Yes, it says my internet is unstable.
+Them:  Sorry. I mean, the office.
+Them:  So—
+Them:  Anyway, so.
+Them:  So you were talking about the tasks and then the—
+Them:  Yeah, so the—
+Them:  This view.
+Them:  Thank you.
+Them:  So I'm not going to go and describe it again. The experience is that this part is to be able to visualize and to actually measure end-to-end when somebody opens a pull request and when that pull request ends up in development environment.
+Them:  Right? And this is a self-service experience as well, right?
+Them:  If, for example, there is some new task that gets added, and people will say, hey, yeah, well, before—I don't know—before, let's say, OpenShift, I need to do something with—and I think.
+Them:  We actually have that. What's the name of that?
+Them:  Orion. Orion, right?
+Them:  And I need to.
+Them:  The platform is OpenShift, and let's say it says three days, right? So there will be some new task, right?
+Them:  And somebody will say, hey, for me, for my module, I had to do the up to OpenShift. Well, let's say not up to OpenShift, but before OpenShift.
+Them:  After load balancer, I need to open an Orion request. I need to wait up to three days, and it will be another.
+Them:  Everything needs to be necessarily—I mean, ideally,.
+Them:  Ideally, you want everything to be fully automated, right? But in practice, it's for now, it's better to visualize absolutely everything that has happened even if it doesn't happen automatically.
+Them:  So then we can measure, we can visualize, and we can say, hey, for us, in order to do this, these are the tasks that we need to go through, and this is the timeline that it takes based on all of these SLAs if we combine them all together. And then we're going to say, okay, after we visualize this, after we show how much work we need to do in order to get the code in dev,
+You (Speaker 2):  And
+Them:  somebody will say, well, great, let's automate this. So it's not going to be three days, it's going to be five minutes, right?
+You (Speaker 5):  किस चीज़ का?
+Them:  And whatever notes
+You (Speaker 5):  बारिश का?
+Them:  you want to keep here,
+You (Speaker 2):  नहीं, अटैक।
+Them:  yeah, I wanted to say that if somebody is adds this task and says, no, it's something new, and it actually needs to be applicable to absolutely every single module that we're creating, so we can allow—again, a self-service experience, and people will continue improving this and adding this, and we will continue managing this so that we have the full picture and the full visibility what it takes from get the pull request into GitHub and getting that software into dev, right? Excuse me.
+Them:  And similar, for the governance steps, is the equivalent of once we have it in dev, what is it that promotion process from through entire.
+Them:  SDLC environment in order to allow us to get into prod with that same piece of code, right? Any.
+Them:  Questions or concerns so far? What I've explained?
+You (Speaker 5):  So Eugene Abhishek here.
+Them:  Sure, go ahead.
+You (Speaker 5):  So see, yeah, so I just take one use case. For example, we want to bring in Voyager application into this framework, correct?
+Them:  Yep.
+You (Speaker 5):  So what we are saying, that as a part of this exercise, we will we will integrate Voyager into this, or we will we will onboard the Voyager by using this this portal, which will provision the the.
+You (Speaker 5):  Voyager using this portal, and then as a part of तो currently it is not following MFE architecture, it is a monolithic
+Them:  Yep.
+You (Speaker 5):  React or Angular application Voyager right now, and as a sample we should have so so there will be a global shell right now because for for having this so we will have a sort of a
+Them:  No.
+You (Speaker 5):  enterprise label shell
+Them:  No.
+You (Speaker 5):  and then Voyager will become sort of an one of the remote
+Them:  So everything that I just described is a.
+Them:  Distributed
+You (Speaker 2):  Yes, where are you?
+Them:  approach to keep our software in
+You (Speaker 2):  Okay.
+You (Speaker 2):  ठीक है।
+Them:  different repositories and have it broken down.
+Them:  Sorry, you said something?
+You (Speaker 5):  No, no, no, sorry, I was just just muted myself, so some background noise from my side, so yeah, sorry please.
+Them:  So the way the framework defines how to structure your code in such a way that you have everything that you need in order to run a portion of your product, right? CT Voyager being one product.
+Them:  Let me switch here.
+Them:  I'm not going to go through this entire thing, but I'm just going to try to explain it differently. So imagine this is the CT Voyager, right?
+Them:  The way how you should think about it is that you need to decompose that application into multiple
+You (Speaker 5):  Yeah.
+Them:  self-service
+You (Speaker 5):  Yeah.
+Them:  self-sufficient and logically independent modules. Right?
+Them:  And each of these modules
+You (Speaker 5):  Hmm.
+Them:  will have a little bit of front-end, a little bit of back-end, a little bit of database. You see, the database is they should be independent from each other.
+Them:  It doesn't mean it should be a different cluster. But it really should be I have for my host, I have the database, separate from the one that, I don't know, if I would talk about.
+You (Speaker 5):  Hmm.
+Them:  HR Assist, because that's when where we started with all this. We have HR Assist, but also part of the HR Assist, we have a perform.
+You (Speaker 5):  Correct.
+Them:  Assist, right? We have part of the HR Assist that is a learning management portal.
+Them:  And there are a couple of other pieces of functionality. So each
+You (Speaker 5):  Yeah.
+Them:  of them they come up with their independent module.
+Them:  And that entire product can be one module, or that
+You (Speaker 5):  Hmm.
+Them:  entire product can be a
+You (Speaker 5):  Yeah.
+Them:  collection of modules that are in logically independent from each other, that you combine them together and into a product, right? But what is part of that
+You (Speaker 5):  Hmm.
+Them:  module? It's actually all of these things that I described here and it will continue to evolve because we want to have as a component, right?
+Them:  If you think about how the what is the
+You (Speaker 5):  Yeah. Yeah.
+Them:  value between microservices versus a monolithic architecture, right? It literally it's creating independent services that if one of that services is affected,
+You (Speaker 5):  Correct, yeah.
+Them:  all the other services
+You (Speaker 5):  Yeah.
+Them:  they're not affected at all. They in theory should not be affected, right?
+Them:  Because they're independently built and independently deployed from each other, right? So that's why you have in order to be self-sufficient,
+You (Speaker 5):  Yeah. Yeah.
+Them:  you need all of these things to be part of each of the modules, right? You need and some of them in let's say like I know I start with Akamai, but Akamai probably is required or external exposure, but it's not required for internal exposure, right?
+Them:  So where it's not required, that's why we say it's a toggleable enable/disable
+You (Speaker 5):  Yeah. Yeah.
+Them:  configurations so that you do have the code here, right? I actually don't have Akamai, but Apigee, right?
+Them:  I have Apigee here. I have the code.
+Them:  But this code does not affect me at all if I go into module and I say, hey, I want my Apigee to.
+Them:  That's very, very interesting. What's going on?
+You (Speaker 5):  So so Eugene, just to just to clarify myself here, so I I I got what you are saying. So what what as a part of this whole exercise, if we have to onboard Voyager, so the first step is that we first logically break Voyager into you know.
+Them:  Yep.
+You (Speaker 5):  Multiple services, correct, and then maybe to onboard into dev. So I'm just thinking of the deliverables that we might need to do to showcase that Voyager is following the path of ZUIS, so we first of all we we go through that Voyager, we identify how we will break the application into multiple services, and then onboard couple of services into this architecture using this self-service model, and it should follow the the structure what you were showing, correct, that each services should be independent.
+You (Speaker 5):  So we first sort of identify what are the different services we can prepare those services and bring it here, correct, that is what will sort of satisfy that this thing is working, and then later on the entire application we can continue to to develop the further services and and and bring entire everything over here. So that would be the approach, correct, that's what you are also trying to convey.
+You (Speaker 5):  That's what I understood.
+You (Speaker 5):  So that's what we need to do right now, correct, the first thing is to to to have the Voyager divide break into services prepare one service as a part of sample onboarding to this structure use this self-service.
+You (Speaker 5):  Portal and provision everything required to run that service and deploy it, correct, my my understanding or my articulation is is is is correct, this is what you are also looking for.
+Them:  Yes.
+You (Speaker 5):  Okay.
+Them:  That's correct.
+Them:  Okay.
+You (Speaker 5):  Okay, so I I I did slight homework on that, I I I I went through that to to define services, what all the what are the things that we are catering which can be converted into this independent services. So that sort of first level draft I I prepared myself, but so there's a break today and tomorrow in in Pune, so tomorrow Wednesday I will, so as I said I'll get back to you and I I got it, so I need to follow on this this part only that we need to come up with some the the the architecture with the new architecture and then use this and deploy couple of services to, and my my, and that's why I was asking one thing, I mean I'm not sure if the correct question that the the shell part, correct, this landing page or the shell landing shell, we will we have that as a part of this or is it will be it will be independent of multiple applications?
+Them:  Stell is also a micro front-end. Shell is also a module.
+Them:  So I.
+You (Speaker 5):  Correct, it's micro front end, but as a part of enterprise technology will it be a common shell or every application will have their own own shell MFE?
+Them:  So each of the domains decided to have their own shell.
+You (Speaker 5):  Okay.
+Them:  Okay.
+Them:  Right? Espa will run for respite it
+You (Speaker 5):  Okay.
+Them:  will be their own shell. HR Assist is their is their the HR shell.
+Them:  Alpha platform
+You (Speaker 5):  Okay, okay, okay.
+Them:  they in legal it will be alpha shell, right?
+You (Speaker 5):  Okay.
+Them:  So there is no reason to run an enterprise technology shell. Everybody is going to have their own shell.
+Them:  But now each of you guys will come back to us and say, hey, this is the functionality that we want to be part of shell. And then we're going to get together we're going to discuss if it makes sense or it doesn't make sense, if it's reasonable or if it's not reasonable.
+Them:  And we will try to accommodate or not accommodate so that.
+Them:  What some teams built in into their shells other.
+Them:  Teams will say, hey, this is not it doesn't make sense to be part of our shell. There is HR specific or legal specific or so that will be something that is compliance specific or AML specific, right?
+Them:  That's something that we need to get together and need to decide how many of these shells do you want or if your strategy would be to actually start and putting together one shell and multiple experiences within cohesive AML focused platform.
+You (Speaker 5):  Got it. Okay.
+You (Speaker 5):  Understood.
+You (Speaker 5):  Yeah. Yeah.
+You (Speaker 5):  Yeah.
+Them:  But it doesn't matter at this point right now because like everything else shell is just a software piece of software that
+You (Speaker 5):  Yeah. Yeah.
+Them:  you can deploy into any of the environments anytime, right? So technically it does not stop us to move forward.
+Them:  That will be a decision that will be done also between the product engineering and architecture and the some other stakeholders if we want to help the AML ecosystem to kind of reduce the complexity, reduce the amount of.
+Them:  Systems that you need to jump back and forth in order to because historically they were decoupled for various technical reasons. Now we have an opportunity to simplify it's just one system but provides you different experiences that are AML focused.
+Them:  All right?
+You (Speaker 5):  Got it. Understood.
+You (Speaker 5):  Thanks. Yeah.
+You (Speaker 5):  Yeah. Yeah.
+You (Speaker 5):  Understood. Thank you very much.
+Them:  Okay. So let's go back here.
+Them:  So the value number one right that we want to demonstrate is the ability to move and deploy software into dev environment fast and I would also argue to deploy it into production also fast, right? Part of the project Irene.
+Them:  There is actually a target to get the us into an into a state where we can deploy our software within 24 hours.
+Them:  Now I'm not going to spend too much time on arguing with that or talking.
+Them:  One way or the other or a.
+Them:  Debating one way or the other. Technically I want to solve the technical problem and then whenever we'll have the business stakeholders and the other sign-offs that we need to do today in order to get some of the new versions into into production that will be a conversation is beyond our scope for this project, right?
+Them:  Now the second thing is the second value biggest value that we want to deliver is we want to visualize right when somebody goes and introduces a new process or a new task that delays deployment of software from our GitHub environments to dev or from a GitHub repositories to prod. We want to be able to measure that.
+Them:  We want to be able to show it in practice, right? Based on, hey, the SLA is 10 days.
+Them:  But we've measured for this particular module how much time it took and it took actually a.
+Them:  25 days. Right?
+Them:  So we want to show the theoretical timeline versus the reality. Right?
+Them:  That's the second value that we want to bring with this with this project. And the third one is actually empowering agents to push left as much as possible from everybody's responsibilities.
+Them:  Not just engineering not just architecture but absolutely all the teams that are participating in.
+Them:  Delivering software in production everybody is encouraged to bring their requirement and.
+Them:  We are adding to all of our agents MD something like this saying hey here's a bunch of non-functional requirements that I have in for my repository we already add 253 requirements and keep growing right as we're learning from all the product engineering teams we are including some of their requirements into this centralized repository of requirements and then we are asking the agents not just to consider this requirements right but also to demonstrate and to that they are support they are considering this requirements when building software so we are asking you to produce evidence of that they are actually using this requirement and in some cases there might be exceptions which is that's how we are measuring all the exceptions and we're naming them I don't know if we will continue using this I don't want this to become just Zeus focused or Zeus specific process I think we've uncovered the really valuable really.
+Them:  Valuable mechanism how we can do this across all the software regardless if somebody adopting the way how we are writing our software with Zeus framework or somebody is doing something that you've done before it's just an enhancement it's just an improvement on on the process that you can leverage today without having the need to adopt the Zeus framework right and we also have when people are accepting those risk exceptions is doesn't mean it's a risk exception is a cap right it might be like for example in this case we do know oh this.
+Them:  Actually not true anymore I need to update this but for a time being this was actually absolutely true we were sending from the load balancer to our endpoint over the vanity route we're sending plain HTTP request right which is actually a problem from both security perspective as well as.
+Them:  Well security right so it has to be TLS end to end this is actually stalled requirement stalled exception we already fixed this I just need to run one more query to ask hey update the stalled risk exceptions but some other will be for example so abhishek you mentioned Angular right we have a requirement to use React but some applications that were built a couple of years ago or built before we started all of this they might not have not be a reason to invest into upgrading them
+You (Speaker 5):  Yeah.
+Them:  or moving them from Angular to React right so in that case we all we know this is an exception we all it will be documented in this risk exceptions document and everybody will say yep we agree it's a too bigger investment and we'll move forward right so those are a couple of examples of how the process that is AI first driven is generating us not only code but also generates us risk related evidence right it's related to security related evidence it helps us to improve our spec driven development right and we're actually working on that to define this as a mechanism that everybody is going to be using more or less the same the same approach and Zeus as as we evolving from just a simple framework how we're structuring our code into more as an platform that will have the tools that will have this built-in mechanisms that will have this built-in evidence we'll be able to have also different kind of gating capabilities and we're doing some of them today but gating capabilities to allow us to generate code and push left all of our requirements that are coming from architecture engineering risk compliance security and so on and so forth so that the software that gets created is meeting.
+Them:  All of our or the vast majority of our requirements out of the box and we just have the deltas on the right side after the software gets produced in order to help it to make sure that it's safe secure and it can be deployed in production as.
+You (Speaker 5):  Yeah.
+Them:  Make sense all right assuming that it makes sense coming back here so I started I took over this registry UI and I'm going to I'm going to work on to create both the experience and the capabilities so I already created a couple of APIs that leveraging Lightspeed Enterprise APIs to produce us the no no no everything that we've created through UI now it will be part of the creation of provisioning process for for new module um.
+Them:  We do have we talked about the Postgres database Daniel.
+Them:  Question to you related to the Eames authenticate provisioning no and integration with leveraging basically Cedar the policies code right do you have.
+Them:  Updates are you blocked on anything let me know I went through the Eames team trying to see if we can have a access to the to their APIs I looked and they said there's only.
+Them:  I checked their API list and I I only seen only like three API endpoints which.
+Them:  I was trying to leverage but the thing is that since we don't have a domain what I took as an alternative just to move forward is I am emulating an EMS locally and make sure that setter is reading those entitlements just to make sure it works just to the point that when when we have Eames I just change just a little variable and it just points at the actual database so I'm trying to narrow it down the functionality as much as I can and it's been working well locally right now it displays on the Python blueprint what Eame what setter role you have because it read the setter process and it see what role you have with depending of your accessibility and it puts it in into the Python blueprint just as a way to see that it is grabbing them okay um.
+Them:  All right if we have time I would like to see that how it works and how how close it to actually what API are returning back okay all right so I.
+Them:  This can wait this.
+Them:  Will actually be part of the implementations I'm going to move it for up.
+Them:  And this can wait all right so generally speaking for everybody's awareness right so.
+Them:  This task number two will technically solve all of this LSC driven integrations right so what do we mean by that I actually do have them documented below um.
+Them:  And but.
+You (Speaker 5):  ठीक है, कर दे।
+Them:  If your views Lightspeed Lightspeed UI right all of this stuff that we're having here today they've been created through UI um.
+Them:  Assigned members provisioned load balancer uh.
+Them:  I don't know what artifact provisioning we haven't done anything here but load balancer we did actually let me go here so we provisioned the load balancers we provisioned the open shift and we provisioned the database Postgres database but apparently this one is actually I.
+Them:  Know it's going to oh so this one is for liquid base deployments this is not the actual database provisioning similar like a load balancer provisioning and open shift provisioner correct Jonathan still here yeah.
+Them:  That was the question correct this one just provisions for liquid base migrations no not that one if you go to infrastructure.
+Them:  And then you go to database and then you go there and then on the provisioning tab everything there is what's provisioned for migration okay.
+Them:  What is this provision that is for our our database for registry blueprint so the schema that we have configured inside of Postgres that I was able to create I just need to be able to connect to that so that's what I'm working on with the fids and the managed secret nickname okay.
+Them:  All right I would love love to see because I.
+Them:  Think I understand something differently well anyway So we've provisioning the infrastructure we provisioned vault we provisioned certificates and we authorized namespace to be able to access that vault right all of this stuff we did through UI manually now through this task I'm actually going to create this as an registry services registry API and it will be automated.
+Them:  Done when we create a new a new micro a new module now we are having a bunch of non LSE integrations that will have to happen Postgres and fid Jonathan I assume this is part of your work and I assume that you actually also starting now to do that um.
+Them: I actually don't know if we do need an CMP integration from a Zeus perspective, I think. I thought that what you guys done—created that document and then gets submitted somewhere—and we're just going to have something that will people just go to marketplace and they will find that particular CMP, and they will start filling in the information in order to create all the provisioning and all the access in the EMS, right?
+Them:  Okay, let me rephrase that.
+Them:  I don't think we need to implement anything here, as part of the registry API.
+Them:  Is that a correct statement?
+Them:  Well, I mean, in.
+Them:  Not— I mean, I don't have an answer for it right now, but what I could see on the top of my head is, for example, if you want to create a CMP for EMS, the listing that the registry should do is give back the— I guess it's the link, or like a direction where you should probably start putting all the information you need to onboard to EMS.
+Them:  Like, so it would be only one click to them.
+Them:  If you submit that document that you guys— this one—
+Them:  Mm-hm.
+Them:  They'll create a new link, a new product in marketplace, and you'll be able to find that if you go to marketplace, right, and you type here—
+Them:  Zeus—
+Them:  You'll be able to find it.
+Them:  Mm-hm.
+Them:  Is there anything that needs to happen in the registry itself that will require functionality to add in the registry API?
+Them:  I mean, the view that I was expecting from the registry is to be able to connect to the NCP itself API so it generates the NCP itself. That would be the ideal way.
+Them:  With all the information that they fill in the registry.
+Them:  Unless they actually need that document.
+Them:  Sorry, what MCP?
+Them:  Sorry, NCP? No, sorry, I'm— that's another— the CMP.
+Them:  It's— I mean that the ideal way that I could— I was seeing it is more like you fill the information on the registry, and then the registry pings the CMP API so it creates the ticket and brings back the actual CMP ID ticket back to you, so you can keep track of where it's going on the approvals.
+Them:  Would love to see that, because I think that's how it works today.
+Them:  Yeah, I mean, that would be ideal. I don't know if that's possible.
+Them:  We could research that, but that would be a big one.
+Them:  All right. What I think we have right now open in terms of priorities is to get access to create an Orion request in.
+Them:  Monitor that.
+Them:  Again, I don't think we need to do anything on the artifactory side.
+Them:  We do need FID, we do need PGAS, we do need the ServiceNow, request, to index the repository.
+Them:  In Devon.
+Them:  And this is going to be a big one too, but I don't know if we should address it as part of our registry API, I think that should be somewhere down the road.
+Them:  Were we in.
+Them:  Registry when.
+Them:  Have a new version of the module?
+Them:  Because we're not keeping the connection between the source.
+Them:  Module and the target module. It's not keeping a Git tree between those two.
+Them:  It creates two different Git trees.
+Them:  Git fork would solve that problem, and we would not need Devon.
+Them:  But unfortunately, and I don't know what is the reason, Git fork is actually disabled.
+Them:  At city.
+Them:  So I would have to understand from our friend why they disabled it.
+Them:  Yeah.
+Them:  And it might be disabled, but if we have a programmatic way to keep this connection, it will keep the tree between the upstream and downstream and you can open a pull request and it will be able to resolve all the conflicts to the best of its abilities.
+Them:  Why I'm saying that we will need to be able to open a Devon sessions when.
+Them:  New versions will be created, so we're going to maintain the blueprints, right? We're going to evolve.
+Them:  People will create their versions from an older blueprint, and there will be a new blueprint.
+Them:  If you open a pull request, using Git fork, it will be able to solve some of those—
+Them:  Conflicts.
+Them:  —perversing that entire tree and solving conflicts, right?
+Them:  If you just try to.
+Them:  Override you lose all those connections and you will— you might risk breaking the code in the downstream module because we created something new or we may have changed something in the upstream module.
+Them:  So that's why Devon would probably still will have to play a role because then you will say, hey, this is my source, this is my target, just go and open a pull request to update the target to the latest version of the source, without introducing any of these breaking changes.
+Them:  Right.
+Them:  Okay, so you're saying— you're saying Devon would play more of a role as in when it comes to us releasing new versions of some sort?
+Them:  Well, when the versions will diverge a lot, between what we are producing as a blueprint and what our partners, right, abhishek and AJ and Naveen, what they create as their module for their specific product.
+Them:  Mm-hm.
+Them:  Gotcha.
+Them:  And we don't want to do this automatically either, we do need an.
+Them:  Devon is a perfect use case, perfect fit to solve this kind of challenges. So that the engineers don't need to spend time to keep up with versions, they'll just get a new pull request and they'll say, hey, this is to ensure that you maintain and you keep it updated to the latest version.
+Them:  Mm-hm. Gotcha.
+Them:  Because look, right now we have version 2, we still are not up to date, it's not— it does not create new releases after every successful deployment in Dev.
+Them:  Because of the various reasons.
+Them:  Mm-hm.
+Them:  We have the functionality in place, but it does not automatically apply that.
+Them:  The same way we should be able to.
+Them:  Have an updated versioning one way to solve that problem is actually through software dependencies. And we'll— once we have this fully working, we'll start looking at that, right?
+Them:  What do I mean by software dependencies?
+Them:  For example, this blueprint is based on Python, right? So people don't need to know Python in order to run a shell blueprint.
+Them:  But somebody will come and say, hey, I do want to add some more functionality here, because I think my shell needs to do more than what you have in your blueprint.
+Them:  Am I add here code?
+Them:  Which will start diverging between what the blueprint shell offers out of the box, and what is alpha shell offers, or what is HR assist shell offers, or the future AML shell is going to offer, and so on and so forth, right?
+Them:  Yeah.
+Them:  Well, we already have here software that can be removed from this one, put as a dependency in requirements TXT, and just pulled from a centralized place that provides us the libraries and all the capabilities for observability. For security, for policies.
+Them:  This is policy as code, right? This is that stuff that would be center.
+Them:  Any potentially even adapters, I can have multiple inbound and outbound adapters that can be reused across the board; I don't need to create specific adapters for each specific module.
+Them:  So literally the only thing that is specific for this one is this domain, the domain that's where the business logic is. There are services, there are entities, there are ports, this is very, very specific to this implementation for this specific repository.
+Them:  Right? If I bring another one similar to this one, right, registry also Python based.
+Them:  You see, you also have entities, ports, and domains, but the port might be different.
+Them:  You see, I don't have ports for inbound, I have here the greeting service, let's see, what do we have here?
+Them:  Oh, here we have also readiness service.
+Them:  But the greeting service is the one that, as I mentioned before, that will be through Devon people can remove it, and it will clean up everything, all the references, and you're good to go.
+Them:  But that's what I'm— what I mean by various implementations, so here we have outbound entitlement service and policy engine, here we have actually completely different structure for the outbound ports, right?
+Them:  So that's the.
+Them:  Right.
+Them:  What is specific, it will stay within the application, what is actually— oh, I was looking in the wrong place.
+Them:  What is different it will be in each of the repositories. And the way to— what is common between multiple modules, between multiple implementations, we just should publish them as libraries.
+Them:  And you're going to be publishing them into artifactory automatically for every single module. And then we'll be referencing to them similar like we are referencing it over here.
+Them:  Right? It will be one of our modules, it will know that it needs to pull from artifactory, it will also be versioning, stuff like this, will be constantly automatically updated either in the patch version or the minor version or the major version, and it keeps going and kind of keep evolving.
+Them:  Any questions?
+Them:  All right, so I see we have just a couple of minutes. So what is actually needed for us as the next steps?
+Them:  I am going to push.
+Them:  Downstream the ones that are not required urgently, and I'm going to pull upstream the one that needs to happen sooner rather than later. And let's.
+Them:  Do it like this.
+Them:  So I need help with the implementation of this—
+Them:  Non-LSE—
+Them:  Integrations.
+Them:  So Daniel, this is part of your implementation, right?
+Them:  Mm-hm.
+Them:  Jonathan, this is part of your implementation.
+Them:  Correct.
+Them:  I want to see something that's working, or at least work in progress.
+Them:  I need help for this four.
+Them:  Orion, ServiceNow, MCP, and AWS.
+Them:  Abhishek, I know that you mentioned that you also would want to contribute to Zeus, um.
+Them:  But I don't want you to spread.
+Them:  Into different directions.
+Them:  I would rather have you focusing on the city voyager and see how you can pull city voyager into Zeus.
+You (Speaker 9): Okay, yeah—no, no, no, no problem. Thanks.
+You (Speaker 9):  I think that is good enough. I'll, I'll focus.
+You (Speaker 9):  On that one, yeah.
+Them:  Okay, all right, I'll talk to maybe tomorrow, we'll have the other teams, but I'll mention also in our channel that we need to add four or five more different workstreams and start accelerating because our customers are actually asking.
+Them:  All right?
+Them:  Thanks, everybody. Talk soon.
+Them:  All right.
+Them:  Cheers.
+Them:  Bye.
+You (Speaker 9):  Bye.
